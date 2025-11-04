@@ -1,8 +1,8 @@
 # 🚀 ADV IHM - Plateforme d'Intelligence Artificielle
 
 <p align="center">
-  <a href="https://youtu.be/16UDzqwu9k8" target="_blank">
-    <img src="https://img.youtube.com/vi/16UDzqwu9k8/maxresdefault.jpg" 
+  <a href="https://youtu.be/Jf-zQOqtms8" target="_blank">
+    <img src="https://img.youtube.com/vi/Jf-zQOqtms8/maxresdefault.jpg" 
          alt="Présentation du projet" 
          width="600" />
   </a>
