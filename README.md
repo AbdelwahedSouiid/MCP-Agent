@@ -1,5 +1,13 @@
 # 🚀 ADV IHM - Plateforme d'Intelligence Artificielle
 
+<p align="center">
+  <a href="https://youtu.be/16UDzqwu9k8" target="_blank">
+    <img src="https://img.youtube.com/vi/16UDzqwu9k8/maxresdefault.jpg" 
+         alt="Présentation du projet" 
+         width="600" />
+  </a>
+</p>
+
 ## 📋 Table des matières
 - [Présentation du projet](#-présentation-du-projet)
 - [🏗️ Architecture](#%EF%B8%8F-architecture)
