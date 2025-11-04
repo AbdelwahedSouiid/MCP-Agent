@@ -1,0 +1,41 @@
+env/
+.venv/
+venv/
+
+# Cache uv
+
+.uv-cache/
+
+# Fichiers Python
+
+**pycache**/
+_.pyc
+_.pyo
+\*.pyd
+.Python
+
+# Tests et développement
+
+tests/
+.pytest_cache/
+.coverage
+
+# Git et IDE
+
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Données locales (si sensibles)
+
+# ai/data/\*.csv
+
+# Documentation
+
+README.md
+\*.md
+
+# OS
+
+.DS_Store

@@ -1,0 +1,9 @@
+services:
+  adv-chat-front:
+    container_name: adv-chat-front
+    ports:
+      - "4200:4200"
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    

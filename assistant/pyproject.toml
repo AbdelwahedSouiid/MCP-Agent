@@ -1,0 +1,32 @@
+[project]
+name = "chat-ai-fastapi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beanie>=1.30.0",
+    "bs4>=0.0.2",
+    "deep-translator>=1.11.4",
+    "faiss-cpu>=1.11.0",
+    "fastapi>=0.115.12",
+    "faster-whisper>=1.1.1",
+    "httpx>=0.28.1",
+    "langdetect>=1.0.9",
+    "langid>=1.1.6",
+    "mcp[cli]>=1.11.0",
+    "motor>=3.7.1",
+    "numpy>=2.3.0",
+    "ollama>=0.5.1",
+    "pandas>=2.3.0",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.9.1",
+    "pymongo>=4.13.1",
+    "python-multipart>=0.0.20",
+    "redis>=6.2.0",
+    "sentence-transformers>=4.1.0",
+    "slowapi>=0.1.9",
+    "unidecode>=1.4.0",
+    "uvicorn>=0.34.3",
+]
+

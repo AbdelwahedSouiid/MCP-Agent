@@ -1,0 +1,88 @@
+{
+  "examples": [
+    {
+      "query": "Je cherche un smartphone Samsung à moins de 500 euros",
+      "response": {
+        "Type": "SEARCH_PRODUCT",
+        "confidence": 0.95
+      }
+    },
+    {
+      "query": "Quelles sont les caractéristiques de l'iPhone 15 Pro?",
+      "response": {
+        "Type": "PRODUCT_INFO",
+        "confidence": 0.93
+      }
+    },
+    {
+      "query": "Comment puis-je filtrer les résultats par prix sur votre site?",
+      "response": {
+        "Type": "PLATFORM_HELP",
+        "confidence": 0.88
+      }
+    },
+    {
+      "query": "Quels sont les délais de livraison standard?",
+      "response": {
+        "Type": "PLATFORM_INFO",
+        "confidence": 0.92
+      }
+    },
+    {
+      "query": "J'ai un problème avec ma commande, elle n'est pas arrivée",
+      "response": {
+        "Type": "TRANSACTION_HELP",
+        "confidence": 0.94
+      }
+    },
+    {
+      "query": "Comment puis-je devenir vendeur sur votre plateforme?",
+      "response": {
+        "Type": "SELLER_SUPPORT",
+        "confidence": 0.91
+      }
+    },
+    {
+      "query": "Je n'arrive pas à réinitialiser mon mot de passe",
+      "response": {
+        "Type": "ACCOUNT_MGMT",
+        "confidence": 0.96
+      }
+    },
+    {
+      "query": "Quel temps fera-t-il demain à Paris?",
+      "response": {
+        "Type": "OTHER",
+        "confidence": 0.97
+      }
+    },
+    {
+      "query": "Je voudrais acheter un ordinateur portable pour les jeux vidéo",
+      "response": {
+        "Type": "SEARCH_PRODUCT",
+        "confidence": 0.95
+      }
+    },
+    {
+      "query": "Est-ce que ce téléviseur est compatible avec Netflix?",
+      "response": {
+        "Type": "PRODUCT_INFO",
+        "confidence": 0.89
+      }
+    },
+    {
+      "query": "Comment puis-je suivre mon colis?",
+      "response": {
+        "Type": "PLATFORM_HELP",
+        "confidence": 0.94
+      }
+    },
+    {
+      "query": "Comment puis-je gérer mes annonces en tant que vendeur?",
+      "response": {
+        "Type": "SELLER_SUPPORT",
+        "confidence": 0.92
+      }
+    }
+  ]
+}

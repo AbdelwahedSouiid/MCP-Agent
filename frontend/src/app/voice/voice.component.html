@@ -1,0 +1,30 @@
+<div class="voice-transcriber">
+    <button class="mic-button" 
+            [class.recording]="isRecording"
+            (click)="toggleRecording()"
+            [disabled]="isProcessing">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        {{ isRecording ? 'Arrêter' : 'Parler' }}
+    </button>
+    
+    <div class="status-message">
+        <div *ngIf="isRecording" class="pulse-animation">
+            Enregistrement en cours...
+        </div>
+        <div *ngIf="isProcessing" class="processing">
+            Transcription en cours...
+        </div>
+    </div>
+    
+    <div *ngIf="transcription" class="transcription-result">
+        <h3>Transcription :</h3>
+        <p>{{ transcription }}</p>
+    </div>
+    
+    <div *ngIf="error" class="error-message">
+        {{ error }}
+    </div>
+</div>

@@ -1,0 +1,5 @@
+/* Pour éviter que le contenu ne passe derrière la navbar */
+body {
+    padding-top: 70px;
+    /* Doit correspondre à la hauteur de votre navbar */
+  }

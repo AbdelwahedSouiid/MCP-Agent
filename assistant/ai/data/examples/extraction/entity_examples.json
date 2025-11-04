@@ -1,0 +1,217 @@
+{
+  "examples": [
+    {
+      "query": "Je cherche un smartphone Samsung à moins de 500 dinars",
+      "response": {
+        "name": "smartphone",
+        "brand": "Samsung",
+        "price": 500.0
+      },
+      "explanation": "Extraction parfaite - tous les éléments explicites"
+    },
+    {
+      "query": "J'aimerais un ordinateur portable pour le gaming avec 16Go de RAM",
+      "response": {
+        "name": "ordinateur portable",
+        "description": "gaming 16Go RAM"
+      },
+      "explanation": "Pas de marque mentionnée, pas de prix - seulement ce qui est dit"
+    },
+    {
+      "query": "Je veux une TV 4K LG entre 600 et 1000 dinars de 55 pouces",
+      "response": {
+        "name": "TV",
+        "brand": "LG", 
+        "price": 800.0,
+        "description": "4K 55 pouces"
+      },
+      "explanation": "Prix = moyenne entre 600 et 1000, toutes specs mentionnées"
+    },
+    {
+      "query": "Un casque audio Bose pas trop cher",
+      "response": {
+        "name": "casque audio",
+        "brand": "Bose"
+      },
+      "explanation": "'Pas trop cher' n'est pas un prix précis - omis"
+    },
+    {
+      "query": "Je veux quelque chose de bien pour travailler",
+      "response": {},
+      "explanation": "Aucune information spécifique - JSON vide"
+    },
+    {
+      "query": "Un iPhone 13 Pro d'occasion à 800 dinars",
+      "response": {
+        "name": "iPhone 13 Pro",
+        "brand": "Apple",
+        "price": 800.0,
+        "description": "occasion"
+      },
+      "explanation": "iPhone = produit Apple implicitement connu"
+    },
+    {
+      "query": "PC portable Dell pour le bureau avec SSD",
+      "response": {
+        "name": "PC portable",
+        "brand": "Dell",
+        "description": "bureau SSD"
+      },
+      "explanation": "Usage et stockage spécifiques mentionnés"
+    },
+    {
+      "query": "Une tablette pour dessiner, budget 300 dinars maximum",
+      "response": {
+        "name": "tablette",
+        "price": 300.0,
+        "description": "dessiner"
+      },
+      "explanation": "Usage créatif spécifique et budget clair"
+    },
+    {
+      "query": "Ecouteurs sans fil Apple AirPods",
+      "response": {
+        "name": "AirPods",
+        "brand": "Apple",
+        "description": "écouteurs sans fil"
+      },
+      "explanation": "AirPods = nom de produit spécifique, caractéristique technique"
+    },
+    {
+      "query": "Imprimante laser HP moins de 200 dinars",
+      "response": {
+        "name": "imprimante",
+        "brand": "HP",
+        "price": 200.0,
+        "description": "laser"
+      },
+      "explanation": "Type d'imprimante techniquement spécifié"
+    },
+    {
+      "query": "Un truc pour écouter de la musique",
+      "response": {},
+      "explanation": "Trop vague - aucune catégorie produit précise"
+    },
+    {
+      "query": "MacBook Air 13 pouces",
+      "response": {
+        "name": "MacBook Air",
+        "brand": "Apple",
+        "description": "13 pouces"
+      },
+      "explanation": "MacBook = produit Apple, taille d'écran spécifiée"
+    },
+    {
+      "query": "Souris gaming Logitech RGB avec 6 boutons",
+      "response": {
+        "name": "souris",
+        "brand": "Logitech",
+        "description": "gaming RGB 6 boutons"
+      },
+      "explanation": "Caractéristiques gaming très spécifiques"
+    },
+    {
+      "query": "Clavier mécanique pas cher",
+      "response": {
+        "name": "clavier",
+        "description": "mécanique"
+      },
+      "explanation": "Type de clavier spécifique, prix trop vague"
+    },
+    {
+      "query": "Montre connectée Samsung Galaxy Watch",
+      "response": {
+        "name": "Galaxy Watch",
+        "brand": "Samsung",
+        "description": "montre connectée"
+      },
+      "explanation": "Nom de produit spécifique avec caractéristique technique"
+    },
+    {
+      "query": "Console de jeux pour jouer en famille",
+      "response": {
+        "name": "console de jeux",
+        "description": "famille"
+      },
+      "explanation": "Usage familial spécifique, pas de marque mentionnée"
+    },
+    {
+      "query": "Un appareil photo reflex Canon EOS avec objectif 50mm",
+      "response": {
+        "name": "appareil photo",
+        "brand": "Canon",
+        "description": "reflex EOS objectif 50mm"
+      },
+      "explanation": "Type d'appareil et spécifications optiques précises"
+    },
+    {
+      "query": "Disque dur externe 1To USB 3.0",
+      "response": {
+        "name": "disque dur externe",
+        "description": "1To USB 3.0"
+      },
+      "explanation": "Capacité et interface de connexion spécifiées"
+    },
+    {
+      "query": "Enceinte Bluetooth JBL étanche pour la piscine",
+      "response": {
+        "name": "enceinte",
+        "brand": "JBL",
+        "description": "Bluetooth étanche piscine"
+      },
+      "explanation": "Connectivité et usage spécifique en milieu aquatique"
+    },
+    {
+      "query": "Un bon smartphone Android",
+      "response": {
+        "name": "smartphone",
+        "description": "Android"
+      },
+      "explanation": "Système d'exploitation spécifié, 'bon' est subjectif"
+    }
+  ],
+  "counter_examples": [
+    {
+      "query": "Un PC portable",
+      "bad_response": {
+        "name": "PC portable",
+        "brand": "unknown",
+        "description": "portable"
+      },
+      "correct_response": {
+        "name": "PC portable"
+      },
+      "error": "Ajout de 'unknown' et duplication 'portable'"
+    },
+    {
+      "query": "Je veux quelque chose de performant",
+      "bad_response": {
+        "name": "ordinateur",
+        "description": "performant"
+      },
+      "correct_response": {},
+      "error": "Invention du type 'ordinateur' non mentionné"
+    },
+    {
+      "query": "Un téléphone pas cher",
+      "bad_response": {
+        "name": "téléphone",
+        "price": 100.0,
+        "description": "économique"
+      },
+      "correct_response": {
+        "name": "téléphone"
+      },
+      "error": "Prix inventé et description non mentionnée"
+    }
+  ],
+  "validation_rules": [
+    "Jamais de valeurs 'unknown', 'null', 'non spécifié'",
+    "Jamais d'invention d'informations non mentionnées",
+    "Jamais de duplication entre name et description",
+    "Seulement les mots exacts de la requête utilisateur",
+    "Omettre complètement les champs incertains",
+    "Prix uniquement si montant numérique explicite",
+    "Marques uniquement si explicitement nommées"
+  ]
+}

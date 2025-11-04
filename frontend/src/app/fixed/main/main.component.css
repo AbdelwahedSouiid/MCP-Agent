@@ -1,0 +1,11 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Plus grand que la hauteur de l'écran */
+    width: 100%;
+    padding: var(--space-xl); /* Augmenter le padding */
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}

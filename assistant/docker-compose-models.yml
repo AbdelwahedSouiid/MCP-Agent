@@ -1,0 +1,43 @@
+#docker-compose-tools.yml
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_HOST=0.0.0.0:11434
+    healthcheck:
+      test: ["CMD", "curl", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ollama-setup:
+  #   image: ollama/ollama:latest
+  #   container_name: ollama-setup
+  #   depends_on:
+  #     ollama:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   restart: "no"
+  #   environment:
+  #     - OLLAMA_HOST=http://ollama:11434
+  #   command: >
+  #     sh -c "
+  #       echo 'Waiting for Ollama service...' &&
+  #       sleep 10 &&
+  #       echo 'Pulling llama3.2 model...' &&
+  #       ollama pull llama3.2 &&
+  #       echo 'Model installation completed!' &&
+  #       ollama list
+  #     "
+
+volumes:
+  ollama_data:

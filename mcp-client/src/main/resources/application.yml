@@ -1,0 +1,51 @@
+# Configuration du serveur
+server:
+  port: 8891
+
+# Configuration de l'application
+spring:
+  application:
+    name: mcp-client
+
+
+
+  # Configuration Ollama
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3.2
+
+    # Configuration MCP
+    mcp:
+      client:
+        type: sync
+
+
+        # Configuration SSE (Server-Sent Events)
+#        sse:
+#          connections:
+#            server1:
+#              url: http://localhost:8899
+#              sse-endpoint: /sse
+
+        # Configuration STDIO
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
+
+# Configuration des logs
+logging:
+  level:
+    org.springframework.ai.mcp: DEBUG
+    io.modelcontextprotocol: DEBUG
+    org.springframework.ai.ollama: DEBUG
+    com.orange.adv.ihm.agents: DEBUG
+    org.springframework.ai.tool: DEBUG
+    org.springframework.ai.mcp.client: DEBUG
+
+# Configuration de gestion (actuator)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics

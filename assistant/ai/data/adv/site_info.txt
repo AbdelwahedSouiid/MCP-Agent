@@ -1,0 +1,84 @@
+Historique : 
+1994 : démarrage du projet ADV
+1997 : démarrage  du pilote ADV-Olla sur Toulouse, puis  Ola1 et plateforme VD, 
+1998 : mise en œuvre de la plateforme Mobicarte, la 2nd plateforme Ola2, la plateforme VI
+1999 : mise en œuvre de la plateforme Ola3
+2002 : mise en œuvre de la plateforme Orange5
+2008 : démarrage du projet VPF (remplacement de la valorisation ADV)
+2012 : Mise en production VPF 
+2013 : généralisation VPF
+2014 : arrêt du projet VPF et retour arrière. 
+2015 : lancement du projet de portage d’ADV
+
+
+Architecture technique : 
+L’application ADV repose sur le  progiciel de gestion et de facturation Télécom JUPITER et une couche spécifique développée pour les besoins et objectifs d’Orange France. Le progiciel JUPITER n’est plus un progiciel sur le marché et les lignes de code ont été achetées par Orange. 
+Open VMS / Programmes Gembase et C / Fichiers indexés RMS / $U
+Cible de la rénovation en cours : LINUX / Programmes Java et C / Base Cassandra / One Automation
+
+Le parc des clients a été réparti sur plusieurs plateformes:
+5 plates-formes Orange Grand Public OLA1, OLA2, OLA3, VD (Vente Directe) et OR5 (Orange 5) 
+La plate-forme ADV VI (vente indirecte) dédiée au parc client Orange  France  Entreprises, MVNO (Opérateur virtuel de téléphonie mobile) et SCS (Société de commercialisation de services)
+1 plate-forme MOBI, dédiée au parc client de l’offre pré payée Mobicarte Orange France.
+
+
+Afin d’autoriser la parallélisation de certains traitements en vue d’optimiser les temps de traitement, chaque plateforme  est découpée en
+1 base qui regroupe les données liées à l’ensemble des clients géré par la plateforme  core
+8 databases dans lesquelles sont réparties les informations liées aux données relatives aux contrats souscrits par le client ligne de produit
+
+
+Spécificités de la répartition sur plusieurs plateformes
+OLA1(S23,S35,36,36,37,38 )OLA2 OLA3 VD ORANGE5 vi moby
+
+Chaque plateforme est indépendante, aucun traitement ne porte sur un ensemble de plateformes , elles communiquent entre elles à l’identique avec des applications extérieures via des flux batch ou temps réel . 
+Il n’y a pas de traitement de supervision des plateformes qui permettrait aux applications externes de se soustraire à cette contrainte forte: elles doivent s’adresser à la plateforme avec laquelle elles souhaitent échanger, par exemple cibler la plateforme qui héberge le client qu’elles souhaitent consulter ou modifier ou sur laquelle elles souhaitent créer le client.
+Les plateformes ont toutes le même niveau de mises à jour des composants.
+règles générales pour la recherche des tables dans cette structure
+une table est implémentée au niveau core si elle est préfixée
+CO_ : elle provient du progiciel, exemple CO_CUSTOMERS
+FTFRA_CO : elle a été créée pour le spécifique Orange
+une table est implémentée au niveau ligne produit si elle est préfixée
+S23_ : elle provient du progiciel, exemple S23_SUBSCRIBERS
+FTFRA_23 : elle a été créée pour le spécifique Orange, quelques exceptions sont au niveau core, par exemple   FTFRA_23_LIEN_SBSC_OPT
+
+ADV est le référentiel des clients grand public mobile d’Orange
+Pour les clients entreprises et gérés par des SCS et MVNO, la création dans ADV-VI permet d’assurer la mise à jour du réseau technique.
+L’application DISE est le référentiel historique de ces clients
+
+
+
+Architecture fonctionnelle - Domaines
+
+1 : gestion du parc client :regroupe les fonctionnalités de
+prise de commande, 
+gestion des clients et des offres qu’ils détiennent
+gestion des données techniques et diffusion vers le réseau
+diffusion des données dans le SI, 
+
+2 : utilisation de la ligne
+regroupe les fonctionnalités 
+d’acquisition des appels
+de valorisation des appels
+3 : facturation post- facturation 
+regroupe les fonctionnalités 
+de facturation, 
+d’acquisition des paiements, 
+de recouvrement et  contentieux, 
+de comptabilité générale et auxiliaire.
+
+4 : paramétrage fonctionnel et technique
+regroupe les fonctionnalités permettant le paramétrage via les IHMs ADV
+
+
+Le client : 
+client GP : 
+Le client  est une personne, ou une personne morale qui achète des produits et des services à Orange Mobile
+Il est identifié par un numéro unique, généré par ADV à la prise de commande. Les plages de numéros sont affectées par plateforme.  Le préfixe du numéro permet aux applications partenaires d’identifier la plateforme à laquelle elles doivent s’adresser
+Dans le SI mobile, il existe 2 notions
+	le client  qui est détendeur de 1 ou n abonnements à des offres Orange mobile
+	le  compte de facturation qui est le payeur et le responsable de la dette
+	Dans ADV ces 2 notions se confondent dans l’entité client
+client mobicarte : les clients ayant acheté des mobicartes ne sont pas référencés dans ADV, celles-ci sont regroupées sous des clients génériques
+client VI : le client  n’est pas la personne  ayant acheté un produit ou service mais il représente
+	un MVNO « opérateur virtuel de téléphonie mobile »  (par exemple SIMYO), 
+	une SCS ( par exemple créd

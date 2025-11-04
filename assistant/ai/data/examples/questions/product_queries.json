@@ -1,0 +1,47 @@
+{
+    "examples": [
+        {
+            "query": "je cherche un pc portable",
+            "missing_features": ["brand", "price", "description"],
+            "questions": {
+                "brand": "Avez-vous une préférence parmi nos marques disponibles comme HP, Lenovo ou Dell ?",
+                "price": "Dans quelle gamme de prix souhaitez-vous investir ?",
+                "description": "Est-ce pour un usage professionnel, gaming ou plutôt bureautique ?"
+            }
+        },
+        {
+            "query": "je veux un iphone",
+            "missing_features": ["price", "description"],
+            "questions": {
+                "price": "Quel est votre budget pour cet iPhone ?",
+                "description": "Quelle capacité de stockage recherchez-vous ?"
+            }
+        },
+        {
+            "query": "je cherche une machine à laver",
+            "missing_features": ["brand", "price", "description"],
+            "questions": {
+                "brand": "Avez-vous une préférence entre Samsung, LG ou Bosch ?",
+                "price": "Quel budget avez-vous prévu pour votre lave-linge ?",
+                "description": "Quelle capacité de lavage vous conviendrait en kg ?"
+            }
+        },
+        {
+            "query": "montre connectée",
+            "missing_features": ["brand", "price"],
+            "questions": {
+                "brand": "Préférez-vous une Apple Watch ou une montre Samsung ?",
+                "price": "Quel est votre budget pour cette montre connectée ?"
+            }
+        },
+        {
+            "query": "télévision 4k",
+            "missing_features": ["brand", "price", "description"],
+            "questions": {
+                "brand": "Quelle marque vous intéresse parmi Samsung, LG ou Sony ?",
+                "price": "Dans quelle fourchette de prix souhaitez-vous rester ?",
+                "description": "Quelle taille d'écran recherchez-vous ?"
+            }
+        }
+    ]
+}

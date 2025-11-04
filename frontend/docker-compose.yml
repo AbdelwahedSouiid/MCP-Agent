@@ -1,0 +1,30 @@
+services:
+  yalla-chat-front:
+    image: 'yalla-chat-front:latest'
+    container_name: yalla-chat-front
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    stdin_open: true
+    tty: true
+    # ports:
+      # - "4545:80"
+    # expose:
+    #   - 80
+    networks:
+      - nginx-proxy
+      - network-yalla-ai
+
+networks:
+  nginx-proxy:
+    external: true
+  network-yalla-ai:
+    external: true
